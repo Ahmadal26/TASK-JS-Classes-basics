@@ -20,9 +20,35 @@
  * print out the sum of their ages using calculateAge() method
  */
 class Person {
-  // continue the code here
+  constructor(firstName, lastName, gender, birthYear) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.gender = gender;
+    this.birthYear = birthYear;
+  }
+  printName() {
+    return this.firstName + " " + this.lastName;
+  }
+
+  calculateAge(currentYear) {
+    return currentYear - this.birthYear;
+  }
 }
 
+const object1 = new Person("Ahmad", "Musallam", "Male", 1999);
+const object2 = new Person("Osama", "Al-Shammari", "Male", 2000);
+const object3 = new Person("Wahab", "Abdal", "Male", 2001);
+
+console.log(object1.printName());
+console.log(object2.printName());
+console.log(object3.printName());
+console.log(
+  object1.calculateAge(2023) +
+    object2.calculateAge(2023) +
+    object3.calculateAge(2023)
+);
+
+// need help
 /** (Question 2): (15000 Points)
  * 1. Write a class `Movie`, give it the following properties
  * - title
@@ -45,7 +71,14 @@ class Person {
  */
 
 class Movie {
-  // continue the code here
+  //   constructor(title,duraton,genre)[
+  //   ]
+  //   title=this.title
+  //   duraton=this.duraton
+  //   genre=this.genre
+  //   rating=this.rating
+  // }
+  // function rate(rating) {
 }
 
 /** (Question 3): (1000 Points)
@@ -57,4 +90,5 @@ class Movie {
  * +
  */
 
-// write the class here
+// need help
+class Actor {}
