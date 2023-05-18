@@ -48,7 +48,6 @@ console.log(
     object3.calculateAge(2023)
 );
 
-// need help
 /** (Question 2): (15000 Points)
  * 1. Write a class `Movie`, give it the following properties
  * - title
@@ -71,15 +70,33 @@ console.log(
  */
 
 class Movie {
-  //   constructor(title,duraton,genre)[
-  //   ]
-  //   title=this.title
-  //   duraton=this.duraton
-  //   genre=this.genre
-  //   rating=this.rating
-  // }
-  // function rate(rating) {
+  rating = [];
+  constructor(title, duraton, genre) {
+    this.title = title;
+    this.duraton = duraton;
+    this.genre = genre;
+  }
+
+  rate(rating) {
+    if (rating > 0 && rating <= 10) {
+      this.rating.push(rating);
+    }
+  }
+
+  avereageRating() {
+    const sum = this.rating.reduce((a, b) => a + b);
+    return sum / this.rating.length;
+  }
 }
+
+const movie1 = new Movie("black clover", 140, "funny");
+//console.log(movie1.rating);
+movie1.rate(9);
+movie1.rate(9);
+movie1.rate(10);
+movie1.rate(10);
+console.log(movie1.rating);
+console.log(movie1.avereageRating());
 
 /** (Question 3): (1000 Points)
  * 1. Create a class `Actor` that inherits `Person`, and adds the following properties
@@ -90,5 +107,18 @@ class Movie {
  * +
  */
 
-// need help
-class Actor {}
+class Actor extends Person {
+  movies = [];
+  constructor(firstName, lastName, gender, birthYear, movies = []) {
+    super(firstName, lastName, gender, birthYear);
+    this.movies = movies;
+  }
+
+  addMovie(movie) {
+    this.movies.push(movie);
+  }
+}
+const actor = new Actor("Ahmad", "Musallam", "male", 1999);
+actor.addMovie("Dragon Ball");
+actor.addMovie(" Attack on Titans");
+console.log(actor.movies);
